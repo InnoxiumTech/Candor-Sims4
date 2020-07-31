@@ -8,11 +8,19 @@ group 'me.shadowchild.candor'
 version '1.0-SNAPSHOT'
 
 repositories {
+
+    jcenter()
     mavenCentral()
+
+    maven { url 'https://dl.bintray.com/candor/candor-alpha' }
 }
 
 dependencies {
-    implementation files('libs/CandorManager-snapshot.jar')
+
+    // Uncomment this to use a local candor jar
+//    implementation files('/libs/CandorManager-snapshot.jar')
+    // This will pull from bintray
+    implementation 'me.shadowchild.candor:candor-full:snapshot-0.1'
 }
 
 tasks.withType(JavaCompile) {
