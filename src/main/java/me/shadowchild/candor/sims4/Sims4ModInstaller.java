@@ -60,6 +60,35 @@ public class Sims4ModInstaller extends AbstractModInstaller {
         return true;
     }
 
+    @Override
+    public boolean uninstall(Mod mod) {
+
+        String extension = getExtension(mod);
+
+        switch(extension) {
+
+            case "zip", "7z" -> {
+
+                mod.getAssociatedFiles().forEach(element -> {
+
+                    File toDelete = new File(module.getModsFolder(), element.getAsString());
+                    System.out.println("Deleting: " + toDelete.getAbsolutePath());
+                    FileUtils.deleteQuietly(toDelete);
+                });
+                return true;
+            }
+            case "package", "ts4script" -> {
+
+                String fileName = mod.getName() + "." + extension;
+
+                File toDelete = new File(module.getModsFolder(), fileName);
+                System.out.println("Deleting: " + toDelete.getAbsolutePath());
+                return FileUtils.deleteQuietly(toDelete);
+            }
+        }
+        return false;
+    }
+
     private boolean determineShouldExtractMod(Mod mod) {
 
         return switch (getExtension(mod)) {
