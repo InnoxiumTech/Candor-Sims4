@@ -1,8 +1,10 @@
 package me.shadowchild.candor.sims4;
 
 import me.shadowchild.candor.ConfigHandler;
+import me.shadowchild.candor.Settings;
 import me.shadowchild.candor.module.AbstractModInstaller;
 import me.shadowchild.candor.module.AbstractModule;
+import me.shadowchild.candor.module.RunConfig;
 
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
@@ -73,7 +75,32 @@ public class Sims4Module extends AbstractModule {
     @Override
     public String getModFileFilterList() {
 
-        return "zip,package,7z";
+        return "zip,package,7z,ts4script";
+    }
+
+    @Override
+    public RunConfig getDefaultRunConfig() {
+
+        return new RunConfig() {
+
+            @Override
+            public String getStartCommand() {
+
+                return Settings.gameExe;
+            }
+
+            @Override
+            public String getProgramArgs() {
+
+                return "";
+            }
+
+            @Override
+            public String getWorkingDir() {
+
+                return null;
+            }
+        };
     }
 
     @Override

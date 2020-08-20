@@ -5,14 +5,17 @@ plugins {
 sourceCompatibility = 14
 
 group 'me.shadowchild.candor'
-version '1.0-SNAPSHOT'
+version '0.1'
 
 repositories {
 
     jcenter()
     mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 
     maven { url 'https://dl.bintray.com/candor/candor-alpha' }
+    maven { url 'https://dl.bintray.com/candor/cybernize' }
 }
 
 dependencies {
@@ -20,14 +23,10 @@ dependencies {
     // Uncomment this to use a local candor jar
 //    implementation files('/libs/CandorManager-snapshot.jar')
     // This will pull from bintray
-    implementation 'me.shadowchild.candor:candor-full:snapshot-0.1'
-}
+    implementation 'me.shadowchild.candor:candor-full:0.1.2'
+    implementation 'me.shadowchild.cybernize:cybernize:1.0.2'
 
-tasks.withType(JavaCompile) {
-    options.compilerArgs += '--enable-preview'
-}
-tasks.withType(Test) {
-    jvmArgs += "--enable-preview"
+    implementation "commons-io:commons-io:2.7"
 }
 
 jar {
