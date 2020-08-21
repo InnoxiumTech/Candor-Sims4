@@ -23,8 +23,8 @@ dependencies {
     // Uncomment this to use a local candor jar
 //    implementation files('/libs/CandorManager-snapshot.jar')
     // This will pull from bintray
-    implementation 'me.shadowchild.candor:candor-full:0.1.3'
-    implementation 'me.shadowchild.cybernize:cybernize:1.0.2'
+    implementation 'me.shadowchild.candor:candor-full:0.1.4'
+    implementation 'me.shadowchild.cybernize:cybernize:1.1.1'
 
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.guava:guava:29.0-jre'

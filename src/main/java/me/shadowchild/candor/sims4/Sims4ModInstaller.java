@@ -3,6 +3,8 @@ package me.shadowchild.candor.sims4;
 import me.shadowchild.candor.mod.Mod;
 import me.shadowchild.candor.module.AbstractModInstaller;
 import me.shadowchild.candor.module.AbstractModule;
+import me.shadowchild.cybernize.archive.Archive;
+import me.shadowchild.cybernize.archive.ArchiveBuilder;
 import me.shadowchild.cybernize.zip.ZipUtils;
 import org.apache.commons.io.FileUtils;
 
@@ -30,16 +32,18 @@ public class Sims4ModInstaller extends AbstractModInstaller {
         File modDir = this.module.getModsFolder();
 
         // For archives or files
-        if(extract) {
+        if (extract) {
 
 //            File modDir = new File(this.module.getModsFolder(), mod.getReadableName());
-            if(!modDir.exists()) modDir.mkdirs();
+            if (!modDir.exists()) modDir.mkdirs();
 
             try {
 
-                System.out.println(modDir.getCanonicalPath());
-                ZipUtils.unZipIt(mod.getFile().getCanonicalPath(), modDir.getCanonicalPath());
-            } catch(IOException e) {
+                Archive archive = new ArchiveBuilder(mod.getFile()).outputDirectory(modDir).build();
+                archive.extract();
+//                System.out.println(modDir.getCanonicalPath());
+//                ZipUtils.unZipIt(mod.getFile().getCanonicalPath(), modDir.getCanonicalPath());
+            } catch (IOException e) {
 
                 e.printStackTrace();
                 return false;
@@ -63,37 +67,45 @@ public class Sims4ModInstaller extends AbstractModInstaller {
     @Override
     public boolean uninstall(Mod mod) {
 
-        String extension = getExtension(mod);
 
-        switch(extension) {
+        mod.getAssociatedFiles().forEach(element -> {
 
-            case "zip", "7z" -> {
-
-                mod.getAssociatedFiles().forEach(element -> {
-
-                    File toDelete = new File(module.getModsFolder(), element.getAsString());
-                    System.out.println("Deleting: " + toDelete.getAbsolutePath());
-                    FileUtils.deleteQuietly(toDelete);
-                });
-                return true;
-            }
-            case "package", "ts4script" -> {
-
-                String fileName = mod.getName() + "." + extension;
-
-                File toDelete = new File(module.getModsFolder(), fileName);
-                System.out.println("Deleting: " + toDelete.getAbsolutePath());
-                return FileUtils.deleteQuietly(toDelete);
-            }
-        }
-        return false;
+            File toDelete = new File(module.getModsFolder(), element.getAsString());
+            System.out.println("Deleting: " + toDelete.getAbsolutePath());
+            FileUtils.deleteQuietly(toDelete);
+        });
+        return true;
+//        String extension = getExtension(mod);
+//
+//        switch(extension) {
+//
+//            case "zip", "7z", "rar" -> {
+//
+//                mod.getAssociatedFiles().forEach(element -> {
+//
+//                    File toDelete = new File(module.getModsFolder(), element.getAsString());
+//                    System.out.println("Deleting: " + toDelete.getAbsolutePath());
+//                    FileUtils.deleteQuietly(toDelete);
+//                });
+//                return true;
+//            }
+//            case "package", "ts4script" -> {
+//
+//                String fileName = mod.getName() + "." + extension;
+//
+//                File toDelete = new File(module.getModsFolder(), fileName);
+//                System.out.println("Deleting: " + toDelete.getAbsolutePath());
+//                return FileUtils.deleteQuietly(toDelete);
+//            }
+//        }
+//        return false;
     }
 
     private boolean determineShouldExtractMod(Mod mod) {
 
         return switch (getExtension(mod)) {
 
-            case "zip", "7z" -> true;
+            case "zip", "7z", "rar" -> true;
             case "package", "ts4script" -> false;
             default -> throw new IllegalArgumentException("This file is not a proper mod");
         };

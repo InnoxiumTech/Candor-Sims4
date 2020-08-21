@@ -49,12 +49,6 @@ public class Sims4Module extends AbstractModule {
     }
 
     @Override
-    public ConfigHandler.IConfig getConfig() {
-
-        return null;
-    }
-
-    @Override
     public AbstractModInstaller getModInstaller() {
 
         return new Sims4ModInstaller(this);
@@ -75,7 +69,7 @@ public class Sims4Module extends AbstractModule {
     @Override
     public String getModFileFilterList() {
 
-        return "zip,package,7z,ts4script";
+        return "zip,7z,ts4script,package,rar";
     }
 
     @Override
