@@ -1,10 +1,9 @@
 package me.shadowchild.candor.sims4;
 
-import me.shadowchild.candor.ConfigHandler;
-import me.shadowchild.candor.Settings;
-import me.shadowchild.candor.module.AbstractModInstaller;
-import me.shadowchild.candor.module.AbstractModule;
-import me.shadowchild.candor.module.RunConfig;
+import uk.co.innoxium.candor.Settings;
+import uk.co.innoxium.candor.module.AbstractModInstaller;
+import uk.co.innoxium.candor.module.AbstractModule;
+import uk.co.innoxium.candor.module.RunConfig;
 
 import javax.swing.filechooser.FileSystemView;
 import java.io.File;
