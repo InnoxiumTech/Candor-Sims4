@@ -1,6 +1,9 @@
 package me.shadowchild.candor.sims4;
 
+import com.github.f4b6a3.uuid.util.UuidConverter;
 import uk.co.innoxium.candor.Settings;
+import uk.co.innoxium.candor.game.Game;
+import uk.co.innoxium.candor.game.GamesList;
 import uk.co.innoxium.candor.module.AbstractModInstaller;
 import uk.co.innoxium.candor.module.AbstractModule;
 import uk.co.innoxium.candor.module.RunConfig;
@@ -79,7 +82,9 @@ public class Sims4Module extends AbstractModule {
             @Override
             public String getStartCommand() {
 
-                return Settings.gameExe;
+                Game game = GamesList.getGameFromUUID(UuidConverter.fromString(Settings.lastGameUuid));
+
+                return game.getGameExe();
             }
 
             @Override
