@@ -24,6 +24,7 @@ public class Sims4Module extends AbstractModule {
     @Override
     public File getModsFolder() {
 
+        // We cannot use linux currently
         return new File(FileSystemView.getFileSystemView().getDefaultDirectory().getPath(), "Electronic Arts/The Sims 4/Mods");
     }
 

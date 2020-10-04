@@ -16,6 +16,12 @@ repositories {
 
     maven { url 'https://dl.bintray.com/candor/candor-alpha' }
     maven { url 'https://dl.bintray.com/candor/cybernize' }
+
+    maven {
+
+        name 'Swing Extensions repo'
+        url 'https://dl.bintray.com/innoxium/SwingExtensions'
+    }
 }
 
 dependencies {
@@ -23,8 +29,9 @@ dependencies {
     // Uncomment this to use a local candor jar
 //    implementation files('/libs/CandorManager-snapshot.jar')
     // This will pull from bintray
-    implementation 'uk.co.innoxium.candor:candor-api:0.2.1'
+    implementation 'uk.co.innoxium.candor:candor-api:0.2.2'
     implementation 'uk.co.innoxium.cybernize:cybernize:1.1.4'
+    implementation 'uk.co.innoxium.swing:swingext:0.1'
 
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.guava:guava:29.0-jre'
