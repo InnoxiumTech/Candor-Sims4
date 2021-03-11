@@ -30,7 +30,7 @@ dependencies {
 //    implementation files('/libs/CandorManager-snapshot.jar')
     // This will pull from bintray
     implementation 'uk.co.innoxium.candor:candor-api:0.2.17'
-    implementation 'uk.co.innoxium.cybernize:cybernize:1.1.4'
+    implementation 'uk.co.innoxium.cybernize:cybernize:1.1.5'
     implementation 'uk.co.innoxium.swing:swingext:0.1'
 
     implementation 'com.google.code.gson:gson:2.8.6'
