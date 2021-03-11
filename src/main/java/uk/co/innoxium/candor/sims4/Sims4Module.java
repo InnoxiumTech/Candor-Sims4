@@ -1,4 +1,4 @@
-package me.shadowchild.candor.sims4;
+package uk.co.innoxium.candor.sims4;
 
 import com.github.f4b6a3.uuid.util.UuidConverter;
 import uk.co.innoxium.candor.Settings;
@@ -78,7 +78,7 @@ public class Sims4Module extends AbstractModule {
     @Override
     public RunConfig getDefaultRunConfig() {
 
-        return new RunConfig() {
+        return new RunConfig("default") {
 
             @Override
             public String getStartCommand() {

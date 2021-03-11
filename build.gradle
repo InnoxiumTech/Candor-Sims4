@@ -4,7 +4,7 @@ plugins {
 
 sourceCompatibility = 14
 
-group 'me.shadowchild.candor'
+group 'uk.co.innoxium.candor'
 version '0.1'
 
 repositories {
@@ -14,13 +14,10 @@ repositories {
     maven { url 'https://jitpack.io' }
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 
-    maven { url 'https://dl.bintray.com/candor/candor-alpha' }
-    maven { url 'https://dl.bintray.com/candor/cybernize' }
-
     maven {
 
-        name 'Swing Extensions repo'
-        url 'https://dl.bintray.com/innoxium/SwingExtensions'
+        name "Innoxium Repo"
+        url "https://repo.repsy.io/mvn/innoxium/innoxium"
     }
 }
 
@@ -44,6 +41,6 @@ jar {
 
     manifest {
 
-        attributes 'Candor-Module-Class': 'me.shadowchild.candor.sims4.Sims4Module'
+        attributes 'Candor-Module-Class': 'uk.co.innoxium.candor.sims4.Sims4Module'
     }
 }

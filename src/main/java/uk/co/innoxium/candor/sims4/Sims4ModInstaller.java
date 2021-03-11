@@ -1,4 +1,4 @@
-package me.shadowchild.candor.sims4;
+package uk.co.innoxium.candor.sims4;
 
 import org.apache.commons.io.FileUtils;
 import uk.co.innoxium.candor.mod.Mod;
