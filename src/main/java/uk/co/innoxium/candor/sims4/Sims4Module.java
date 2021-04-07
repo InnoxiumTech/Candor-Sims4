@@ -52,6 +52,13 @@ public class Sims4Module extends AbstractModule {
     }
 
     @Override
+    public String getReadableGameName(Game game) {
+
+        return getReadableGameName();
+    }
+
+
+    @Override
     public AbstractModInstaller getModInstaller() {
 
         return new Sims4ModInstaller(this);
