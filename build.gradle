@@ -26,7 +26,7 @@ dependencies {
     // Uncomment this to use a local candor jar
 //    implementation files('/libs/CandorManager-snapshot.jar')
     // This will pull from bintray
-    implementation 'uk.co.innoxium.candor:candor-api:0.2.20'
+    implementation 'uk.co.innoxium.candor:candor-api:0.3.0-pre3'
     implementation 'uk.co.innoxium.cybernize:cybernize:1.1.6'
     implementation 'uk.co.innoxium.swing:swingext:0.1'
 
