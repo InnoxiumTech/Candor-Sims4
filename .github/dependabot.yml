@@ -1,0 +1,17 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: uk.co.innoxium.candor:candor-api
+    versions:
+    - 0.2.18
+    - 0.3.0-pre
+    - 0.3.0-pre2
+    - 0.3.0-pre3
+  - dependency-name: commons-io:commons-io
+    versions:
+    - 2.8.0
